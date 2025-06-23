@@ -299,6 +299,7 @@ header h1 {
     counter-reset: step-counter;
     padding-left: 0;
     margin-top: 20px;
+    list-style-type: none;
 }
 
 .steps li {
