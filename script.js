@@ -10,7 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
         submitForm();
     });
 });
-
+// Трекинг кликов по рекомендациям
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('gift-card') || e.target.closest('.gift-card')) {
+        // Отслеживание кликов по рекомендациям
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'gift_click', {
+                'gift_title': e.target.querySelector('h3')?.textContent
+            });
+        }
+    }
+});
 // Переход к следующему шагу
 function nextStep(currentStep) {
     // Валидация текущего шага перед переходом
@@ -68,6 +78,18 @@ function validateStep(stepNumber) {
 
 // Отправка формы и обработка результатов
 function submitForm() {
+        // Сбор данных для аналитики
+    const analyticsData = {
+        relationship: document.getElementById('relationship').value,
+        age: document.getElementById('age').value,
+        budget: document.getElementById('budget').value,
+        timestamp: new Date().toISOString()
+    };
+    
+    // Отправка в Google Analytics (пример)
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_submit', analyticsData);
+    }
     // Скрываем форму и показываем загрузку
     document.querySelector('.questionnaire').classList.add('hidden');
     document.getElementById('results').classList.remove('hidden');
@@ -306,3 +328,4 @@ function generateMockGifts(formData) {
     // Возвращаем 5 самых релевантных подарков
     return suitableGifts.slice(0, 6);
 }
+
