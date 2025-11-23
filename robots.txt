@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://practic1.onrender.com/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /

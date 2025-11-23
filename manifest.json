@@ -1,0 +1,21 @@
+{
+    "name": "Guess Gift - ИИ подбор подарков",
+    "short_name": "Guess Gift",
+    "description": "Искусственный интеллект для подбора идеальных подарков",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#6a5acd",
+    "theme_color": "#9370db",
+    "icons": [
+        {
+            "src": "images/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
